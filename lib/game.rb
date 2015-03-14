@@ -121,9 +121,9 @@ class PhysicsComponent
   end
 
   def create
-    @game.physics.startSystem(Phaser::Physics::ARCADE)
-    @game.physics.arcade.checkCollision.up   = false
-    @game.physics.arcade.checkCollision.down = false
+    @game.physics.start_system(Phaser::Physics::ARCADE)
+    @game.physics.arcade.check_collision.up   = false
+    @game.physics.arcade.check_collision.down = false
   end
 
   def update(ball, player_paddle, computer_paddle)
@@ -134,15 +134,19 @@ class PhysicsComponent
   private
   def collide(ball, paddle)
     ball_hits_paddle = proc do |ball, paddle|
+      ball   = Phaser::Sprite.new(ball)
+      paddle = Phaser::Sprite.new(paddle)
+
       diff = 0
 
-      if `ball.x < paddle.x`
-        diff = `paddle.x` - `ball.x`
-      elsif `ball.x > paddle.x`
-        diff = `ball.x` - `paddle.x`
-        `ball.body.velocity.x = 10 * diff`
+      case
+      when ball.x < paddle.x
+        diff = paddle.x - ball.x
+      when ball.x > paddle.x
+        diff = ball.x - paddle.x
+        ball.body.velocity.x = 10 * diff
       else
-        `ball.body.velocity.x = 2 + Math.random() * 8`
+        ball.body.velocity.x = 2 + rand * 8
       end
     end
 
@@ -174,13 +178,13 @@ class Game
     update
     render
 
-    Phaser::Game.new(480, 640, Phaser::AUTO, '', state)
+    Phaser::Game.new(width: 480, height: 640, renderer: Phaser::AUTO, state: state)
   end
 
   def preload
     state.preload do |game|
-      WORLD_CENTER_Y = game.world.centerY
-      WORLD_CENTER_X = game.world.centerX
+      WORLD_CENTER_Y = game.world.y_center
+      WORLD_CENTER_X = game.world.x_center
 
       instantiate_objects(game)
 
