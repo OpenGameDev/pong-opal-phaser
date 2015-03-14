@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/orbitalimpact/opal-phaser.git
+  revision: d97de68d60149f46e2f5dd4849988ca5b968ae1d
+  specs:
+    opal-phaser (0.1.2)
+      opal (~> 0.6.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -7,8 +14,6 @@ GEM
     opal (0.6.3)
       source_map
       sprockets
-    opal-phaser (0.1.2)
-      opal (~> 0.6.0)
     rack (1.6.0)
     rack-protection (1.5.3)
       rack
@@ -29,5 +34,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  opal-phaser
+  opal-phaser!
   sinatra
