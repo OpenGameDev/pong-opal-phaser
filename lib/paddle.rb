@@ -21,7 +21,7 @@ class Paddle
     @game.physics.arcade.enable(@paddle)
 
     @paddle.body.collideWorldBounds = true
-    @paddle.anchor.setTo(0.5, 0.5)
+    @paddle.anchor.set_to(0.5, 0.5)
     @paddle.body.bounce.setTo(1, 1)
     @paddle.body.immovable = true
   end
