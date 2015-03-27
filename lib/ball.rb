@@ -20,7 +20,7 @@ class Ball
 
     @game.physics.arcade.enable(@game_object)
 
-    @game_object.body.collideWorldBounds = true
+    @game_object.body.collide_world_bounds = true
     @game_object.anchor.set_to(0.5, 0.5)
     @game_object.body.bounce.setTo(1, 1)
 
