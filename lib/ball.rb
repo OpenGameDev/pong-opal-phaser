@@ -24,7 +24,7 @@ class Ball
     @game_object.anchor.set_to(0.5, 0.5)
     @game_object.body.bounce.setTo(1, 1)
 
-    @game.input.onDown.add(ball_listener)
+    @game.input.on_down.add(ball_listener)
   end
 
   def update
