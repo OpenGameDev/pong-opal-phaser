@@ -23,7 +23,7 @@ class Game
 
       instantiate_objects(game)
 
-      game.time.advancedTiming = true
+      game.time.advanced_timing = true
 
       @background.preload
       @ball.preload
