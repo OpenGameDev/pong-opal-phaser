@@ -7,8 +7,8 @@ Based on https://github.com/deiga/phaser-pong
 ## Running
 
 ```
- $ bundle
- $ rackup
+ $ # don't bother running `bundle` because the project will upgrade to newer, incompatible versions
+ $ bundle exec rackup
 ```
 
 ## Contributing
